@@ -2,5 +2,5 @@ package Practice;
 
 public class BookManager {
 	//Hello
-	int s = 123;
+	int s = 453;
 }

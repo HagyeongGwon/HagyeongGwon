@@ -5,5 +5,5 @@ public class BookManager {
 	int j = 0;
 	
 	//Sending me email plz Again!
-
+	int i = 0;
 }

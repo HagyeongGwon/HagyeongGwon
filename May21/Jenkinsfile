@@ -17,13 +17,13 @@ pipeline {
             }
         }
         stage('DEBUG') {
- 		 steps {
-    		sh 'echo ====== 현재 경로 ======'
-    		sh 'pwd'
-    		sh 'echo ====== 전체 폴더 구조 ======'
-    		sh 'find .'
-  }
-}
+ 		 	steps {
+    			sh 'echo ====== 현재 경로 ======'
+    			sh 'pwd'
+    			sh 'echo ====== 전체 폴더 구조 ======'
+    			sh 'find .'
+  			}		
+		}		
 
     }
     post {

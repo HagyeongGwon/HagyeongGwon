@@ -24,9 +24,27 @@ pipeline {
         }
         failure {
             echo 'Build or test failed'
+            emailext (
+            subject: " Build 실패: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """\
+                <p> 빌드 실패</p>
+                <p>에러 원인 확인 필요</p>
+                <p>빌드 URL: ${env.BUILD_URL}</p>
+            """,
+            to: "ls010507@gmail.com"
+        )
         }
         success {
             echo 'Build and test succeeded'
+            emailext (
+            subject: "Build 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """\
+                <p>빌드 성공!</p>
+                <p>결과 파일: <a href="${env.BUILD_URL}artifact/test_results.txt">test_results.txt</a></p>
+                <p>빌드 URL: ${env.BUILD_URL}</p>
+            """,
+            to: "ls010507@gmail.com"
+        )
         }
     }
 }

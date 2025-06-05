@@ -25,17 +25,16 @@ pipeline {
      			subject: "🔔 테스트: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
       			body: "이 메일은 무조건 보내집니다.",
       			to: 'ls010507@naver.com',
-      			mimeType: 'text/plain'
     		)
         }
         failure {
             echo 'Build or test failed'
             emailext (
             	subject: " Build 실패: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            	body: """\
+            	body: "
 					원인 확인이 필요합니다.
 					직접 가서 확인하세요.
-            		""",
+            		",
             	to: "ls010507naver.com"
         	)
         }
@@ -43,10 +42,10 @@ pipeline {
             echo 'Build and test succeeded'
             emailext (
             	subject: "Build 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            	body: """\
+            	body: "
                 	빌드 성공!
                 	빌드 내용은 직접 가서 확인하세요.
-            		""",
+            		",
             	to: "ls010507@naver.com"
         	)
         }

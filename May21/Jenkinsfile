@@ -21,6 +21,12 @@ pipeline {
     post {
         always {
             archiveArtifacts 'test_results.txt'
+            emailext (
+     			ssubject: "🔔 테스트: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+      			body: "이 메일은 무조건 보내집니다.",
+      			to: 'gwonhx@gmail.com',
+      			mimeType: 'text/plain'
+    )
         }
         failure {
             echo 'Build or test failed'

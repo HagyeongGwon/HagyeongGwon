@@ -24,7 +24,7 @@ pipeline {
             emailext (
      			ssubject: "🔔 테스트: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
       			body: "이 메일은 무조건 보내집니다.",
-      			to: 'gwonhx@gmail.com',
+      			to: 'ls010507@naver.com',
       			mimeType: 'text/plain'
     )
         }

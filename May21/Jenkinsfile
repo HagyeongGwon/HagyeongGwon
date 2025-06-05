@@ -34,8 +34,8 @@ pipeline {
             	subject: " Build 실패: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             	body: """\
 					원인 확인이 필요합니다.
-					로그: ${env.BUILD_URL}
-            		""".stripIndent(),
+					직접 가서 확인하세요.
+            		""",
             	to: "ls010507naver.com"
         	)
         }
@@ -45,8 +45,7 @@ pipeline {
             	subject: "Build 성공: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             	body: """\
                 	빌드 성공!
-                	결과 파일 확인: ${env.BUILD_URL}artifact/test_results.txt
-                	빌드 URL: ${env.BUILD_URL}
+                	빌드 내용은 직접 가서 확인하세요.
             		""",
             	to: "ls010507@naver.com"
         	)
